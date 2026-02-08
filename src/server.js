@@ -4,6 +4,7 @@ import dotenv from "dotenv"
 import dbConnection from "./database/dbconnect.js"
 import userRouter from "./routes/user.js"
 import photoRouter from "./routes/photo.js"
+import cors from "cors"
 
 
 dotenv.config({ path:'.env' })
@@ -19,6 +20,8 @@ dbConnection()
 // middlewares
 
 app.use(express.json())
+
+app.use(cors())
 
 app.use(express.urlencoded({extended:true}))
 
